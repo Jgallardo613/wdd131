@@ -1,0 +1,157 @@
+/* WDD 131: Jeffrey Gallardo - base.css */
+
+/* 1. Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+/* 2. Color and Layout Variables */
+:root{
+    /* Color Scheme */
+    --primary-color: #004d40;     /* Dark Teal (Header/Footer/Primary Accent) */
+    --secondary-color: #e0f2f1;   /* Light Cyan (Page Background) */
+    --accent-color: #ffb300;      /* Amber (Hover/Divider Accent) */
+    --card-bg-color: #ffffff;     /* White (Card Background) */
+    --text-color: #333333;        /* Dark Grey (Body Text) */
+    --heading-color: #00251a;     /* Very Dark Teal (Headings) */
+    
+    /* Typography & Layout */
+    --default-font: 'Roboto', sans-serif;
+    --max-page-width: 960px;
+    --padding-unit: 1.5rem;   /* Keeping this generous padding for good internal spacing */
+}
+
+/* --- General Styles --- */
+
+body {
+    font-family: var(--default-font);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Paragraph spacing update for better readability */
+p {
+    line-height: 1.6; /* Slightly reduced from 1.7 to 1.6 */
+    margin-bottom: 0.5rem; /* Reduced space below paragraphs */
+}
+
+h1, h2 {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+/* --- Header & Navigation --- */
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--padding-unit); /* 1.5rem padding */
+    text-align: center; 
+}
+
+/* REQUIRED: span tag display: block; */
+#course-title {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding-bottom: 0.75rem;
+}
+
+/* REQUIRED: CSS Flex on the navigation nav */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+}
+
+/* REQUIRED: Well designed hover effect */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: var(--accent-color); 
+}
+
+/* --- Main Content Layout --- */
+
+/* REQUIRED: main element limited width and centered */
+main {
+    max-width: var(--max-page-width);
+    margin: 2rem auto; /* REDUCED: Back to 2rem top/bottom margin */
+    padding: 0 var(--padding-unit); 
+    
+    /* REQUIRED: Layout cards using CSS Grid (Mobile Default: 1 Column) */
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 2rem; /* REDUCED: Back to 2rem gap between cards */
+}
+
+/* Desktop Layout: Two-column grid */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    /* H1 spans both columns */
+    h1 {
+        grid-column: 1 / -1; 
+        text-align: center; /* CENTERED: Aligned H1 in the center again */
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-color);
+    }
+}
+
+/* --- Section/Card Styles --- */
+
+.card {
+    background-color: var(--card-bg-color); 
+    padding: var(--padding-unit); /* Uses 1.5rem padding */
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--secondary-color);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--accent-color); 
+    padding-bottom: 0.5rem; /* Adjusted back to original spacing */
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* Profile Image Styling */
+.card img {
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+}
+
+/* List item spacing */
+.card ul li {
+    padding: 0.25rem 0; 
+}
+
+/* --- Footer --- */
+
+footer {
+    background-color: var(--primary-color); 
+    color: var(--secondary-color); 
+    text-align: center;
+    padding: var(--padding-unit); /* 1.5rem padding */
+    margin-top: 2rem; /* REDUCED: Back to 2rem separation */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0.25rem 0;
+}
