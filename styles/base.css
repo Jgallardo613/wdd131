@@ -1,8 +1,9 @@
 /* WDD 131: Jeffrey Gallardo - base.css */
 
 /* 1. Google Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 /* 2. Color and Layout Variables */
 :root{
