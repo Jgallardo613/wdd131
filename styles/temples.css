@@ -1,0 +1,115 @@
+/* ================================================= */
+/* temples.css - Mobile First Styles (Small Screens) */
+/* ================================================= */
+
+/* Universal Reset and Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: #003366; /* Deep blue color */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* --- NAVIGATION/FILTERS --- */
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    background-color: #004080;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    flex-grow: 1; 
+    text-align: center;
+    transition: background-color 0.3s;
+    /* Visual separation for buttons */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+nav a:last-child {
+    border-right: none;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #0066cc; /* Highlight for hover and the active filter */
+    font-weight: bold;
+}
+
+/* --- MAIN GALLERY CONTAINER --- */
+.gallery {
+    flex-grow: 1;
+    padding: 1rem;
+    display: grid;
+    /* MOBILE: Force a single column */
+    grid-template-columns: 1fr; 
+    gap: 1rem; 
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.gallery h2 {
+    /* Ensures the heading spans the full width on mobile */
+    grid-column: 1 / -1; 
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* --- FIGURE/IMAGE STYLING --- */
+figure {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0; /* Ensures no extra margins interfere with the grid gap */
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Add a slight transition for filtering/hover effects */
+    transition: transform 0.3s ease;
+}
+
+figcaption {
+    padding: 0.75rem;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    color: #003366;
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    font-size: 0.8rem;
+}
