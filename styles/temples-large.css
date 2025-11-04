@@ -3,31 +3,80 @@
     Purpose: Desktop/Large Screen Styles (min-width: 600px)
 */
 
+/* ================================================= */
+/* --- TABLET LAYOUT (min-width: 600px) --- */
+/* ================================================= */
 @media screen and (min-width: 600px) {
+    
+    /* Criterion 6 FIX: Hide the hamburger icon on all screens 600px and up */
+    #menu-toggle {
+        display: none; 
+    }
+
+    /* Criterion 6 FIX: Revert navigation to horizontal display */
+    nav {
+        display: flex !important; /* Force navigation to display horizontally */
+        flex-direction: row;
+        position: static;
+        top: 0;
+        padding: 0.5rem 0;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 1rem;
+        text-align: center;
+        width: auto;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: none;
+        padding: 0.75rem 1rem;
+    }
+
+    nav a:last-child {
+        border-right: none;
+    }
+    
+    /* Criterion 8 FIX: Gallery Layout - 2 columns for tablets */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1.5rem; 
+        padding: 1.5rem;
+        max-width: 95%;
+    }
+
+    /* Ensures the heading spans both columns */
+    .gallery h2 {
+        grid-column: 1 / -1; 
+    }
+}
+
+
+/* ================================================= */
+/* --- DESKTOP LAYOUT (min-width: 1000px) --- */
+/* ================================================= */
+@media screen and (min-width: 1000px) {
     
     /* Centers the entire page content on large screens */
     body {
-        max-width: 1200px;
+        max-width: 1400px; /* Increased from 1200px for consistency */
         margin: 0 auto;
     }
 
-    /* Target the gallery container to change the layout */
+    /* Criterion 8 FIX: Gallery Layout - 3 columns for desktop */
     .gallery {
-        /* OVERRIDE: Switches mobile's 1fr to a 3-column grid */
         grid-template-columns: repeat(3, 1fr); 
-        gap: 1.5rem; 
         padding: 2rem;
         max-width: 100%; 
     }
 
-    /* Ensures the heading spans all three columns of the new grid */
+    /* Ensures the heading spans all three columns */
     .gallery h2 {
         grid-column: 1 / -1; 
     }
     
-    /* Optional: Improves spacing for navigation links on desktop */
-    nav a {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
+    /* Optional: Slight hover enhancement */
+    figure img:hover {
+        transform: scale(1.03); 
     }
 }
