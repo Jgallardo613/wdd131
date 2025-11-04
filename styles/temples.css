@@ -20,7 +20,7 @@ body {
 /* --- HEADER --- */
 header {
     background-color: #003366; /* Deep blue color */
-    color: white;
+    color: white; /* Excellent contrast */
     padding: 1rem;
     text-align: center;
 }
@@ -38,7 +38,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: white; /* Excellent contrast */
     text-decoration: none;
     padding: 0.75rem 0.5rem;
     font-size: 0.9rem;
@@ -76,7 +76,7 @@ nav a.active {
     /* Ensures the heading spans the full width on mobile */
     grid-column: 1 / -1; 
     margin-bottom: 1rem;
-    color: #333;
+    color: #333; /* Good dark color */
 }
 
 /* --- FIGURE/IMAGE STYLING --- */
@@ -100,16 +100,71 @@ figcaption {
     padding: 0.75rem;
     font-weight: bold;
     background-color: #f4f4f4;
-    color: #003366;
+    /* FIX: Changed color to dark gray (#333333) for improved contrast on #f4f4f4 background. */
+    color: #333333; 
     font-size: 0.9rem;
 }
 
 /* --- FOOTER --- */
 footer {
     background-color: #003366;
-    color: white;
+    color: white; /* Excellent contrast */
     padding: 1rem;
     text-align: center;
     margin-top: auto; /* Pushes the footer to the bottom */
     font-size: 0.8rem;
+}
+
+/* ================================================= */
+/* Media Queries for Larger Screens (Responsive Layout) */
+/* ================================================= */
+
+/* --- TABLETS and LARGER (Min-width: 600px) --- */
+@media (min-width: 600px) {
+    
+    /* Adjust navigation for more space */
+    nav {
+        padding: 0.5rem 1rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    /* Gallery layout change for tablets - 2 columns */
+    .gallery {
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 1.5rem;
+        max-width: 95%; 
+        padding: 1.5rem;
+    }
+
+    .gallery h2 {
+        /* Ensure heading still spans both columns */
+        grid-column: 1 / -1; 
+    }
+}
+
+
+/* --- DESKTOPS and LARGER (Min-width: 1000px) --- */
+@media (min-width: 1000px) {
+    
+    /* Center the entire layout on large screens */
+    body {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    /* Gallery layout change for desktops - 3 columns */
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+        max-width: 100%;
+        padding: 2rem;
+    }
+
+    /* Enhance the hover effect for desktop interaction */
+    figure img:hover {
+        transform: scale(1.03); /* Zoom in slightly */
+    }
 }
