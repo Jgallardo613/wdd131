@@ -1,170 +1,77 @@
 /* ================================================= */
 /* temples.css - Mobile First Styles (Small Screens) */
+/* (CRITICAL STYLES REMOVED FOR INLINING IN HTML) */
 /* ================================================= */
 
-/* Universal Reset and Box-Sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Base Body Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 /* --- HEADER --- */
-header {
-    background-color: #003366; /* Deep blue color */
-    color: white; /* Excellent contrast */
-    padding: 1rem;
-    text-align: center;
-}
-
 header h1 {
     margin-bottom: 0.5rem;
 }
 
-/* --- NAVIGATION/FILTERS --- */
+/* --- NAVIGATION/FILTERS (MOBILE DEFAULT: HIDDEN) --- */
 nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 0.5rem 0;
+    display: none; /* HIDE menu by default on mobile */
+    flex-direction: column;
+    width: 100%;
     background-color: #004080;
+    position: absolute; 
+    top: 3.5rem; 
+    left: 0;
+    z-index: 100;
+}
+
+/* Display the navigation when JS toggles the 'open' class */
+nav.open {
+    display: flex;
 }
 
 nav a {
-    color: white; /* Excellent contrast */
+    color: white;
     text-decoration: none;
-    padding: 0.75rem 0.5rem;
+    padding: 0.75rem 1rem;
     font-size: 0.9rem;
     flex-grow: 1; 
-    text-align: center;
+    text-align: left; /* Aligned left for vertical stack */
     transition: background-color 0.3s;
-    /* Visual separation for buttons */
-    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+    width: 100%; /* Full width links */
+    border-right: none; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 nav a:last-child {
-    border-right: none;
+    border-bottom: none;
 }
 
 nav a:hover,
 nav a.active {
-    background-color: #0066cc; /* Highlight for hover and the active filter */
+    background-color: #0066cc; 
     font-weight: bold;
 }
 
-/* --- MAIN GALLERY CONTAINER --- */
-.gallery {
-    flex-grow: 1;
-    padding: 1rem;
-    display: grid;
-    /* MOBILE: Force a single column */
-    grid-template-columns: 1fr; 
-    gap: 1rem; 
-    text-align: center;
-    max-width: 90%;
-    margin: 0 auto;
-}
+/* --- HAMBURGER MENU BUTTON --- */
+/* (The core #menu-toggle styles are now inline) */
 
+
+/* --- MAIN GALLERY CONTAINER --- */
 .gallery h2 {
-    /* Ensures the heading spans the full width on mobile */
     grid-column: 1 / -1; 
     margin-bottom: 1rem;
-    color: #333; /* Good dark color */
+    color: #333;
 }
 
 /* --- FIGURE/IMAGE STYLING --- */
-figure {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0; /* Ensures no extra margins interfere with the grid gap */
-}
-
 figure img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Add a slight transition for filtering/hover effects */
-    transition: transform 0.3s ease;
+    /* Only the non-critical transition remains here */
+    transition: transform 0.3s ease; 
 }
 
-figcaption {
-    padding: 0.75rem;
-    font-weight: bold;
-    background-color: #f4f4f4;
-    /* FIX: Changed color to dark gray (#333333) for improved contrast on #f4f4f4 background. */
-    color: #333333; 
-    font-size: 0.9rem;
-}
 
 /* --- FOOTER --- */
 footer {
     background-color: #003366;
-    color: white; /* Excellent contrast */
+    color: white;
     padding: 1rem;
     text-align: center;
-    margin-top: auto; /* Pushes the footer to the bottom */
+    margin-top: auto; 
     font-size: 0.8rem;
-}
-
-/* ================================================= */
-/* Media Queries for Larger Screens (Responsive Layout) */
-/* ================================================= */
-
-/* --- TABLETS and LARGER (Min-width: 600px) --- */
-@media (min-width: 600px) {
-    
-    /* Adjust navigation for more space */
-    nav {
-        padding: 0.5rem 1rem;
-    }
-
-    nav a {
-        font-size: 1rem;
-        padding: 0.75rem 1rem;
-    }
-
-    /* Gallery layout change for tablets - 2 columns */
-    .gallery {
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 1.5rem;
-        max-width: 95%; 
-        padding: 1.5rem;
-    }
-
-    .gallery h2 {
-        /* Ensure heading still spans both columns */
-        grid-column: 1 / -1; 
-    }
-}
-
-
-/* --- DESKTOPS and LARGER (Min-width: 1000px) --- */
-@media (min-width: 1000px) {
-    
-    /* Center the entire layout on large screens */
-    body {
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-    
-    /* Gallery layout change for desktops - 3 columns */
-    .gallery {
-        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-        max-width: 100%;
-        padding: 2rem;
-    }
-
-    /* Enhance the hover effect for desktop interaction */
-    figure img:hover {
-        transform: scale(1.03); /* Zoom in slightly */
-    }
 }
