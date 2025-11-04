@@ -38,7 +38,7 @@ nav {
 }
 
 nav a {
-    color: white; /* FIX: Ensures all links have good contrast */
+    color: white; /* Ensures all links have good contrast on the dark background */
     text-decoration: none;
     padding: 0.75rem 0.5rem;
     font-size: 0.9rem;
@@ -55,6 +55,7 @@ nav a:last-child {
 nav a:hover,
 nav a.active {
     background-color: #0066cc; 
+    color: #003366; /* FIX APPLIED: Dark text for contrast on the lighter hover background */
     font-weight: bold;
 }
 
