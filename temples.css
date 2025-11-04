@@ -11,7 +11,7 @@
 
 /* Base Body Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Using the linked Google Font */
+    font-family: 'Roboto', sans-serif; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@ body {
 /* --- HEADER --- */
 header {
     background-color: #003366; 
-    color: white; /* FIX: Ensures good contrast with dark blue background */
+    color: white; /* **FIX 1:** Ensures good contrast with dark blue background */
     padding: 1rem;
     text-align: center;
 }
@@ -38,7 +38,7 @@ nav {
 }
 
 nav a {
-    color: white; /* Ensures all links have good contrast on the dark background */
+    color: white; /* **FIX 2:** Ensures all links have good contrast on the dark background */
     text-decoration: none;
     padding: 0.75rem 0.5rem;
     font-size: 0.9rem;
@@ -55,7 +55,7 @@ nav a:last-child {
 nav a:hover,
 nav a.active {
     background-color: #0066cc; 
-    color: #003366; /* FIX APPLIED: Dark text for contrast on the lighter hover background */
+    color: white; /* **FIX 3 (CRITICAL):** Ensures high contrast on the lighter hover background */
     font-weight: bold;
 }
 
@@ -104,7 +104,7 @@ figcaption {
 /* --- FOOTER --- */
 footer {
     background-color: #003366;
-    color: white; /* FIX: Ensures footer text is visible */
+    color: white; /* Ensures footer text is visible */
     padding: 1rem;
     text-align: center;
     margin-top: auto; 
