@@ -14,8 +14,9 @@
     }
 
     /* Criterion 6 FIX: Revert navigation to horizontal display */
+    /* *** CRITICAL FIX: Removed !important to allow mobile nav.open to work *** */
     nav {
-        display: flex !important; /* Force navigation to display horizontally */
+        display: flex; 
         flex-direction: row;
         position: static;
         top: 0;
