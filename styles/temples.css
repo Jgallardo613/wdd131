@@ -73,12 +73,16 @@ nav a.active {
     background: none;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    /* FIX: Increased font size for clear visibility of the symbol (Viewability) */
+    font-size: 2rem; 
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    /* FIX: Adjusted padding/positioning to center the larger symbol */
+    padding: 0.25rem 0.5rem; 
     position: absolute;
-    top: 0.5rem;
+    top: 0.2rem; /* Adjusted from 0.5rem */
     right: 0.5rem;
+    line-height: 1; /* Ensures the symbol is vertically centered */
+    z-index: 200; 
 }
 
 
