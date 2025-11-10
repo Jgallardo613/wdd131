@@ -136,7 +136,7 @@ footer {
     /* FIX APPLIED: Pseudo-element for weather icon in large view (Step 4.4) */
     #weather h2::before {
         content: "☀️"; /* Using the sun emoji as the icon */
-        display: inline-block;
+        display: inline-block; /* Makes the pseudo-element visible */
         font-size: 1.5em; 
         margin-right: 15px;
     }
