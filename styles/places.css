@@ -42,6 +42,15 @@ header {
     align-items: center;
 }
 
+/* --- NEW ::AFTER PSEUDO-ELEMENT RULE (Hidden in Mobile View) --- */
+header::after {
+    /* REQUIRED: Must have content */
+    content: "";
+    /* Start by hiding it for the mobile-first approach */
+    display: none; 
+}
+
+
 footer {
     background-color: var(--text-color);
     color: white;
@@ -157,4 +166,15 @@ footer {
         margin: 0 auto;
         padding: 0 20px;
     }
+
+    /* --- ::AFTER PSEUDO-ELEMENT VISIBLE IN WIDER VIEW --- */
+    header::after {
+        content: "🇸🇻"; /* Example: Adding the El Salvador flag emoji */
+        display: inline-block; 
+        font-size: 1.8em;
+        margin-left: 10px;
+        /* Aligns the pseudo-element with the header content */
+        align-self: center; 
+    }
+
 }
