@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Salvador|The Land of Pupusas</title>
+    
+   <link rel="stylesheet" href="styles/places.css">
+</head>
+<body>
+    <header>
+        <h1>El Salvador| The Land of Pupusas</h1>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <picture>
+                <source 
+                    srcset="images/hero-large.webp" 
+                    media="(min-width: 800px)"
+                    type="image/webp">
+                
+                <img 
+                    src="images/hero-mobile.webp" 
+                    alt="Scenic view of El Salvador"
+                    srcset="images/hero-small.jpg 400w, images/hero-medium.jpg 800w, images/hero-large.jpg 1200w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1000px) 80vw, 1200px"
+                    loading="lazy">
+            </picture>
+        </section>
+
+        <section id="data-facts">
+            <h2>Data</h2>
+            <dl>
+                <dt>Area:</dt>
+                <dd>21,041 sq km</dd>
+                <dt>Population:</dt>
+                <dd>6.3 million</dd>
+                <dt>Capital:</dt>
+                <dd>San Salvador</dd>
+                <dt>Official Language:</dt>
+                <dd>Spanish</dd>
+                <dt>Known For:</dt>
+                <dd>Pupusas</dd>
+            </dl>
+        </section>
+
+        <section id="weather">
+            <h2>Weather ☀️</h2> 
+            
+            <div class="weather-icon-mobile">
+                <img src="images/weather-icon.svg" alt="Sunny weather icon">
+            </div>
+
+            <p>Temperature: <span id="temp-static">25</span> °C</p>
+            <p>Conditions: Sunny</p>
+            <p>Wind: <span id="wind-static">3</span> km/h</p>
+            
+            <p>Wind Chill: <span id="windchill"></span></p>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Jeffrey Gallardo | El Salvador</p>
+        <p>Last Modified: <span id="lastmodified"></span></p>
+    </footer>
+
+    <script src="scripts/places.js" defer></script>
+</body>
+</html>
