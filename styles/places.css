@@ -1,0 +1,152 @@
+/* Student Work Note: WDD 131 Assignment - CSS for El Salvador Page */
+/* This file implements the mobile-first design, CSS Grid layout, and advanced techniques. */
+
+/* Step 4.3: Global CSS Variables for consistent theming */
+:root {
+    --primary-color: #38761d; 
+    --secondary-color: #f1c232; 
+    --accent-color: #cc0000; 
+    --text-color: #333;
+    --background-color: #f7f7f7;
+
+    --heading-font: 'Georgia', serif;
+    --body-font: 'Arial', sans-serif;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- Base Styles (Mobile First: Default Stacked Layout) --- */
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+
+header {
+    background-color: var(--secondary-color);
+    padding: 20px 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+footer {
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+.hero-section {
+    overflow: hidden;
+}
+
+/* FIX APPLIED: Hero Image Responsive Sizing */
+.hero-section img {
+    display: block;
+    width: 100%; /* Ensures it scales down to 100% of the container width */
+    height: auto; /* Maintains the image's aspect ratio */
+    filter: contrast(105%) saturate(105%); 
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
+    max-width: 100%; /* Explicitly prevents image from ever exceeding its container */
+}
+
+.hero-section img:hover {
+    transform: scale(1.02);
+    filter: contrast(100%) saturate(100%);
+}
+
+/* Content Sections */
+#data-facts, #weather {
+    padding: 15px 5%; 
+    border-bottom: 1px solid #ccc;
+    box-shadow: var(--shadow); 
+    margin: 15px 5%;
+    border-radius: 8px; 
+}
+
+/* ADVANCED: nth-of-type selector for list styling */
+#data-facts dt:nth-of-type(odd) {
+    color: var(--accent-color);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 5px;
+}
+
+/* Mobile Weather Icon size */
+.weather-icon-mobile {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.weather-icon-mobile img {
+    width: 40px; 
+    height: auto;
+}
+
+/* Step 4.2: Pseudo-element styling (Hidden in mobile view) */
+#weather h2::before {
+    content: "";
+    display: none; 
+}
+
+
+/* --- Step 4.5: Media Query for Wider View Layout (Required Two-Column Grid) --- */
+@media screen and (min-width: 768px) {
+    
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px; 
+        max-width: 1200px; 
+        margin: 20px auto; 
+        padding: 0 20px;
+    }
+
+    .hero-section {
+        grid-column: 1 / span 2;
+    }
+    
+    #data-facts, #weather {
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-bottom: none; 
+        margin: 0; 
+    }
+    #data-facts { grid-column: 1 / 2; }
+    #weather { grid-column: 2 / 3; }
+
+    .weather-icon-mobile {
+        display: none;
+    }
+
+    #weather h2 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; 
+        text-align: left;
+    }
+    
+    #weather h2::before {
+        content: "☀️"; 
+        display: inline-block;
+        font-size: 1.5em; 
+        margin-right: 15px;
+    }
+    
+    header {
+        justify-content: flex-start;
+    }
+    
+    header h1 {
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
