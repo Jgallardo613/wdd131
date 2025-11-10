@@ -48,14 +48,13 @@ footer {
     overflow: hidden;
 }
 
-/* FIX APPLIED: Hero Image Responsive Sizing */
 .hero-section img {
     display: block;
-    width: 100%; /* Ensures it scales down to 100% of the container width */
-    height: auto; /* Maintains the image's aspect ratio */
+    width: 100%; 
+    height: auto; 
     filter: contrast(105%) saturate(105%); 
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
-    max-width: 100%; /* Explicitly prevents image from ever exceeding its container */
+    max-width: 100%; 
 }
 
 .hero-section img:hover {
@@ -90,6 +89,7 @@ footer {
 }
 
 /* Step 4.2: Pseudo-element styling (Hidden in mobile view) */
+/* The base rule for the pseudo-element is to be hidden by default */
 #weather h2::before {
     content: "";
     display: none; 
@@ -121,6 +121,7 @@ footer {
     #data-facts { grid-column: 1 / 2; }
     #weather { grid-column: 2 / 3; }
 
+    /* Hide the mobile weather icon in the wider view */
     .weather-icon-mobile {
         display: none;
     }
@@ -132,8 +133,9 @@ footer {
         text-align: left;
     }
     
+    /* FIX APPLIED: Pseudo-element for weather icon in large view (Step 4.4) */
     #weather h2::before {
-        content: "☀️"; 
+        content: "☀️"; /* Using the sun emoji as the icon */
         display: inline-block;
         font-size: 1.5em; 
         margin-right: 15px;
