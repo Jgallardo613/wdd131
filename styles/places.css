@@ -28,6 +28,12 @@ h1, h2 {
     color: var(--primary-color);
 }
 
+/* NEW CLASS: Visually hides an element for accessibility/validation (replaces inline style) */
+.sr-only {
+    position: absolute; 
+    left: -9999px; 
+}
+
 header {
     background-color: var(--secondary-color);
     padding: 20px 0;
@@ -89,7 +95,7 @@ footer {
 }
 
 /* Step 4.2: Pseudo-element styling (Hidden in mobile view) */
-/* The base rule for the pseudo-element is to be hidden by default */
+/* This correctly hides the icon on small screens */
 #weather h2::before {
     content: "";
     display: none; 
@@ -133,10 +139,10 @@ footer {
         text-align: left;
     }
     
-    /* FIX APPLIED: Pseudo-element for weather icon in large view (Step 4.4) */
+    /* FIX APPLIED: Pseudo-element is active and visible only in wide view */
     #weather h2::before {
-        content: "☀️"; /* Using the sun emoji as the icon */
-        display: inline-block; /* Makes the pseudo-element visible */
+        content: "☀️"; 
+        display: inline-block; 
         font-size: 1.5em; 
         margin-right: 15px;
     }
