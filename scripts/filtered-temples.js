@@ -70,14 +70,6 @@ const temples = [
         area: 64156,
         imageUrl: "images/idahofallsidahotemple.jpg"
     },
-    // FIX: Added a temple under 10,000 sq ft for the 'Small' filter to work
-    {
-        templeName: "Colonia Juárez Chihuahua Mexico Temple",
-        location: "Colonia Juárez, Mexico",
-        dedicated: "6 March 1999",
-        area: 6800, 
-        imageUrl: "images/coloniajuareztemple.jpg" 
-    },
 ];
 
 // Get gallery element
@@ -176,7 +168,7 @@ navLinks.forEach(link => {
                 filteredTemples = temples.filter(temple => temple.area > 90000);
                 break;
             case 'small':
-                // Now works because Colonia Juárez is included
+                // Note: The 'Small' filter will now return an empty array if no temple is under 10,000 sq ft.
                 filteredTemples = temples.filter(temple => temple.area < 10000);
                 break;
             default:
