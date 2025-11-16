@@ -15,6 +15,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-display: swap; /* Simple performance fix */
 }
 
 /* --- HEADER --- */
@@ -115,6 +116,7 @@ figure img {
     width: 100%;
     height: auto; 
     display: block;
+    aspect-ratio: 4/3; /* Simple fix for layout shift */
     /* transition: transform 0.3s ease; MOVED TO @media screen */
 }
 figcaption {
