@@ -91,6 +91,7 @@ function createTempleCards(filteredTemples) {
         img.loading = 'lazy';
         img.width = 400;
         img.height = 250;
+        img.decoding = 'async'; // Added for better performance
 
         figcaption.textContent = temple.templeName;
 
