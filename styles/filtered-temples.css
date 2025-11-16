@@ -1,5 +1,5 @@
 /* ================================================= */
-/* temples.css - Mobile First Styles (Small Screens) */
+/* filtered-temples.css - Mobile First Styles (Small Screens) */
 /* ================================================= */
 
 /* Universal Reset and Box-Sizing */
@@ -40,19 +40,18 @@ nav {
     top: 3.5rem; 
     left: 0;
     z-index: 100;
-    color: white; /* <-- COLOR CONTRAST FIX: Ensures text is always white on the dark background */
+    color: white;
 }
 nav.open {
     display: flex;
 }
 nav a {
-    color: white; /* <-- Ensures all links meet contrast minimum */
+    color: white;
     text-decoration: none;
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     flex-grow: 1; 
     text-align: left; 
-    /* transition: background-color 0.3s; MOVED TO @media screen */
     width: 100%; 
     border-right: none; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
@@ -73,15 +72,13 @@ nav a.active {
     background: none;
     border: none;
     color: white;
-    /* FIX: Increased font size for clear visibility of the symbol (Viewability) */
     font-size: 2rem; 
     cursor: pointer;
-    /* FIX: Adjusted padding/positioning to center the larger symbol */
     padding: 0.25rem 0.5rem; 
     position: absolute;
-    top: 0.2rem; /* Adjusted from 0.5rem */
+    top: 0.2rem;
     right: 0.5rem;
-    line-height: 1; /* Ensures the symbol is vertically centered */
+    line-height: 1;
     z-index: 200; 
 }
 
@@ -90,7 +87,7 @@ nav a.active {
 .gallery {
     flex-grow: 1;
     padding: 1rem;
-    display: grid; /* <-- CSS GRID COMPLIANCE FIX */
+    display: grid;
     grid-template-columns: 1fr; 
     gap: 1rem; 
     text-align: center;
@@ -115,8 +112,7 @@ figure img {
     width: 100%;
     height: auto; 
     display: block;
-    aspect-ratio: 4/3; /* Simple fix for layout shift */
-    /* transition: transform 0.3s ease; MOVED TO @media screen */
+    aspect-ratio: 4/3;
 }
 figcaption {
     padding: 0.75rem;
