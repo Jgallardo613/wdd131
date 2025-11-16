@@ -1,0 +1,147 @@
+/* ================================================= */
+/* temples.css - Mobile First Styles (Small Screens) */
+/* ================================================= */
+
+/* Universal Reset and Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: #003366; 
+    color: white; 
+    padding: 1rem;
+    text-align: center;
+    position: relative; 
+}
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- NAVIGATION/FILTERS (MOBILE DEFAULT: HIDDEN) --- */
+nav {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    background-color: #004080;
+    position: absolute; 
+    top: 3.5rem; 
+    left: 0;
+    z-index: 100;
+    color: white; /* <-- COLOR CONTRAST FIX: Ensures text is always white on the dark background */
+}
+nav.open {
+    display: flex;
+}
+nav a {
+    color: white; /* <-- Ensures all links meet contrast minimum */
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    flex-grow: 1; 
+    text-align: left; 
+    /* transition: background-color 0.3s; MOVED TO @media screen */
+    width: 100%; 
+    border-right: none; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+nav a:last-child {
+    border-bottom: none;
+}
+nav a:hover,
+nav a.active {
+    background-color: #0066cc; 
+    font-weight: bold;
+}
+
+
+/* --- HAMBURGER MENU BUTTON --- */
+#menu-toggle {
+    display: block; 
+    background: none;
+    border: none;
+    color: white;
+    /* FIX: Increased font size for clear visibility of the symbol (Viewability) */
+    font-size: 2rem; 
+    cursor: pointer;
+    /* FIX: Adjusted padding/positioning to center the larger symbol */
+    padding: 0.25rem 0.5rem; 
+    position: absolute;
+    top: 0.2rem; /* Adjusted from 0.5rem */
+    right: 0.5rem;
+    line-height: 1; /* Ensures the symbol is vertically centered */
+    z-index: 200; 
+}
+
+
+/* --- MAIN GALLERY CONTAINER --- */
+.gallery {
+    flex-grow: 1;
+    padding: 1rem;
+    display: grid; /* <-- CSS GRID COMPLIANCE FIX */
+    grid-template-columns: 1fr; 
+    gap: 1rem; 
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.gallery h2 {
+    grid-column: 1 / -1; 
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* --- FIGURE/IMAGE STYLING --- */
+figure {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0; 
+}
+figure img {
+    width: 100%;
+    height: auto; 
+    display: block;
+    /* transition: transform 0.3s ease; MOVED TO @media screen */
+}
+figcaption {
+    padding: 0.75rem;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    color: #333333; 
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto; 
+    font-size: 0.8rem;
+}
+
+
+@media screen {
+    nav a {
+        transition: background-color 0.3s;
+    }
+
+    figure img {
+        transition: transform 0.3s ease;
+    }
+}
