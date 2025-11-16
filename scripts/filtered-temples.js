@@ -24,7 +24,7 @@ const temples = [
     {
         templeName: "Austin Texas Temple",
         location: "Austin, Texas, USA",
-        dedicated: "17 August 2024", 
+        dedicated: "17 August 2024",
         area: 30000,
         imageUrl: "images/austintexastemple.jpg"
     },
@@ -70,6 +70,14 @@ const temples = [
         area: 64156,
         imageUrl: "images/idahofallsidahotemple.jpg"
     },
+    // FIX: Added a temple under 10,000 sq ft for the 'Small' filter to work
+    {
+        templeName: "Colonia Juárez Chihuahua Mexico Temple",
+        location: "Colonia Juárez, Mexico",
+        dedicated: "6 March 1999",
+        area: 6800, 
+        imageUrl: "images/coloniajuareztemple.jpg" 
+    },
 ];
 
 // Get gallery element
@@ -77,7 +85,8 @@ const gallery = document.querySelector('.gallery');
 
 // Function to create temple cards
 function createTempleCards(filteredTemples) {
-    gallery.innerHTML = '<h2>Latter-day Saint Temples</h2>';
+    // Clear existing content and re-add heading
+    gallery.innerHTML = '<h2>Latter-day Saint Temples</h2>'; 
 
     filteredTemples.forEach(temple => {
         const figure = document.createElement('figure');
@@ -89,9 +98,9 @@ function createTempleCards(filteredTemples) {
         img.src = temple.imageUrl;
         img.alt = temple.templeName;
         img.loading = 'lazy';
-        img.width = 400;
+        img.width = 400; 
         img.height = 250;
-        img.decoding = 'async'; // Added for better performance
+        img.decoding = 'async'; 
 
         figcaption.textContent = temple.templeName;
 
@@ -127,6 +136,7 @@ const navElement = document.querySelector('.navigation');
 if (menuToggle && navElement) {
     menuToggle.addEventListener('click', () => {
         navElement.classList.toggle('open');
+        // Toggle hamburger/X icon
         menuToggle.innerHTML = navElement.classList.contains('open') ? '&times;' : '&#9776;';
     });
 }
@@ -138,6 +148,7 @@ navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
         
+        // Update active class
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
 
@@ -150,6 +161,7 @@ navLinks.forEach(link => {
                 break;
             case 'old':
                 filteredTemples = temples.filter(temple => {
+                    // Extracts the year from the dedication string
                     const year = parseInt(temple.dedicated.split(' ').pop());
                     return year < 1900;
                 });
@@ -164,6 +176,7 @@ navLinks.forEach(link => {
                 filteredTemples = temples.filter(temple => temple.area > 90000);
                 break;
             case 'small':
+                // Now works because Colonia Juárez is included
                 filteredTemples = temples.filter(temple => temple.area < 10000);
                 break;
             default:
