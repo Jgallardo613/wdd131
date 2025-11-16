@@ -1,4 +1,4 @@
-// --- 1. Temple Data Array (Updated with 10 temples, including Idaho Falls) ---
+// Temple Data Array
 const temples = [
     {
         templeName: "Los Angeles California Temple",
@@ -72,104 +72,74 @@ const temples = [
     },
 ];
 
-// --- 2. Dynamic Card Generation Function ---
+// Get gallery element
 const gallery = document.querySelector('.gallery');
 
-// Function to create and display temple cards
+// Function to create temple cards
 function createTempleCards(filteredTemples) {
-    // Clear any existing cards while keeping the main heading
-    gallery.innerHTML = '<h2>Latter-day Saint Temples</h2>'; 
+    gallery.innerHTML = '<h2>Latter-day Saint Temples</h2>';
 
     filteredTemples.forEach(temple => {
-        // Create the elements
         const figure = document.createElement('figure');
         const img = document.createElement('img');
         const figcaption = document.createElement('figcaption');
         const ul = document.createElement('ul');
 
-        // Create the list items for details
-        const locationLi = document.createElement('li');
-        const dedicatedLi = document.createElement('li');
-        const areaLi = document.createElement('li');
+        // Set image attributes
+        img.src = temple.imageUrl;
+        img.alt = temple.templeName;
+        img.loading = 'lazy';
+        img.width = 400;
+        img.height = 250;
 
-        // Set content and attributes for the elements
         figcaption.textContent = temple.templeName;
-        
-        img.setAttribute('src', temple.imageUrl);
-        img.setAttribute('alt', `${temple.templeName} Temple`);
-        img.setAttribute('loading', 'lazy');
-        img.setAttribute('width', '400');
-        img.setAttribute('height', '250');
 
-        locationLi.textContent = `Location: ${temple.location}`;
-        dedicatedLi.textContent = `Dedicated: ${temple.dedicated}`;
-        areaLi.textContent = `Area: ${temple.area.toLocaleString()} sq ft`; // Format area number
+        // Create list items
+        ul.innerHTML = `
+            <li>Location: ${temple.location}</li>
+            <li>Dedicated: ${temple.dedicated}</li>
+            <li>Area: ${temple.area.toLocaleString()} sq ft</li>
+        `;
 
-        // Append list items to the ul
-        ul.appendChild(locationLi);
-        ul.appendChild(dedicatedLi);
-        ul.appendChild(areaLi);
-
-        // Append img, figcaption, and ul to the figure
         figure.appendChild(img);
         figure.appendChild(figcaption);
         figure.appendChild(ul);
-
-        // Append the figure to the gallery container
         gallery.appendChild(figure);
     });
 }
 
-// Initial call to display ALL temples when the page loads
-createTempleCards(temples);
-
-
-// --- 3. Footer Updates (Current Year & Last Modified) ---
-// Set current year
+// Footer updates
 const currentYearSpan = document.querySelector('#currentyear');
 if (currentYearSpan) {
     currentYearSpan.textContent = new Date().getFullYear();
 }
 
-// Set last modified date
 const lastModifiedSpan = document.querySelector('#lastmodified');
 if (lastModifiedSpan) {
     lastModifiedSpan.textContent = document.lastModified;
 }
 
-
-// --- 4. Responsive Menu Toggle ---
+// Menu toggle
 const menuToggle = document.querySelector('#menu-toggle');
 const navElement = document.querySelector('.navigation');
 
 if (menuToggle && navElement) {
     menuToggle.addEventListener('click', () => {
         navElement.classList.toggle('open');
-        
-        const isExpanded = navElement.classList.contains('open');
-        menuToggle.setAttribute('aria-expanded', isExpanded);
-        
-        if (isExpanded) {
-            menuToggle.innerHTML = '&times;'; 
-        } else {
-            menuToggle.innerHTML = '&#9776;'; 
-        }
+        menuToggle.innerHTML = navElement.classList.contains('open') ? '&times;' : '&#9776;';
     });
 }
 
-
-// --- 5. Navigation & Filtering Logic ---
+// Navigation filtering
 const navLinks = document.querySelectorAll('.navigation a');
 
 navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         
-        // Remove 'active' class from all links and add to the clicked one
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
 
-        // Get the filter type from the link text
         const filter = link.textContent.toLowerCase();
         let filteredTemples = [];
 
@@ -178,26 +148,30 @@ navLinks.forEach(link => {
                 filteredTemples = temples;
                 break;
             case 'old':
-                // Temples dedicated before 1950 
-                filteredTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 1950);
+                filteredTemples = temples.filter(temple => {
+                    const year = parseInt(temple.dedicated.split(' ').pop());
+                    return year < 1900;
+                });
                 break;
             case 'new':
-                // Temples dedicated after 2000
-                filteredTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() > 2000);
+                filteredTemples = temples.filter(temple => {
+                    const year = parseInt(temple.dedicated.split(' ').pop());
+                    return year > 2000;
+                });
                 break;
             case 'large':
-                // Temples with area greater than 100,000 sq ft
-                filteredTemples = temples.filter(temple => temple.area > 100000);
+                filteredTemples = temples.filter(temple => temple.area > 90000);
                 break;
             case 'small':
-                // Temples with area less than 40,000 sq ft
-                filteredTemples = temples.filter(temple => temple.area < 40000);
+                filteredTemples = temples.filter(temple => temple.area < 10000);
                 break;
             default:
-                filteredTemples = temples; 
+                filteredTemples = temples;
         }
 
-        // Re-run the display function with the filtered list
         createTempleCards(filteredTemples);
     });
 });
+
+// Display all temples on page load
+createTempleCards(temples);
