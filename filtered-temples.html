@@ -3,24 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple Album - Latter-day Saint Temples</title>
-
-    <meta name="description" content="Browse our collection of Latter-day Saint temples with size and dedication date information.">
-    <meta name="author" content="Jeffrey Gallardo">
+    <title>Temple Album</title>
+    
+    <meta name="description" content="Explore a gallery of beautiful Latter-day Saint temples from around the world, organized by size and dedication date.">
+    <meta name="author" content="Jeffrey Gallardo"> 
 
     <link rel="preload" as="image" href="images/losangelestemple.jpg">
 
-    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/temples.css">
     <link rel="stylesheet" href="styles/temples-large.css" media="screen and (min-width: 600px)">
 
-    <script src="scripts/filtered-temples.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <script src="scripts/temples.js" defer></script> 
 </head>
 <body>
     <header>
         <h1>Temple Album</h1>
-        <button id="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <button id="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button> 
         <nav class="navigation">
-            <a href='#' class="active">Home</a>
+            <a href='#' class="active">Home</a> 
             <a href='#'>Old</a>
             <a href='#'>New</a>
             <a href='#'>Large</a>
@@ -31,14 +35,11 @@
     <main class="gallery">
         <h2>Latter-day Saint Temples</h2>
         </main>
-
+    
     <footer>
         <p>&copy;<span id="currentyear"></span> Temple Album</p>
         <p>Last Modified: <span id="lastmodified"></span></p>
     </footer>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </body>
 </html>
