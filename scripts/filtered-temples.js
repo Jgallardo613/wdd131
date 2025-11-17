@@ -80,32 +80,44 @@ function createTempleCards(filteredTemples) {
     // Clear existing content and re-add heading
     gallery.innerHTML = '<h2>Latter-day Saint Temples</h2>'; 
 
+    // Show message if no temples found
+    if (filteredTemples.length === 0) {
+        gallery.innerHTML += '<p>No temples found for this filter.</p>';
+        return;
+    }
+
     filteredTemples.forEach(temple => {
         const figure = document.createElement('figure');
         const img = document.createElement('img');
         const figcaption = document.createElement('figcaption');
-        const ul = document.createElement('ul');
+        
+        // Create the details wrapper element for clean styling
+        const detailsWrapper = document.createElement('div');
+        detailsWrapper.classList.add('details-wrapper'); 
 
-        // Set image attributes
-        img.src = temple.imageUrl;
-        img.alt = temple.templeName;
-        img.loading = 'lazy';
-        img.width = 400; 
-        img.height = 250;
-        img.decoding = 'async'; 
+       // Set image attributes - FIXED FOR CLS
+img.src = temple.imageUrl;
+img.alt = temple.templeName;
+img.loading = 'lazy';
+img.setAttribute('width', '400');
+img.setAttribute('height', '250'); 
+img.style.aspectRatio = '400 / 250';
+img.decoding = 'async';
 
         figcaption.textContent = temple.templeName;
 
-        // Create list items
-        ul.innerHTML = `
-            <li>Location: ${temple.location}</li>
-            <li>Dedicated: ${temple.dedicated}</li>
-            <li>Area: ${temple.area.toLocaleString()} sq ft</li>
+        // Populate the wrapper with the list items
+        detailsWrapper.innerHTML = `
+            <ul>
+                <li>Location: ${temple.location}</li>
+                <li>Dedicated: ${temple.dedicated}</li>
+                <li>Area: ${temple.area.toLocaleString()} sq ft</li>
+            </ul>
         `;
 
         figure.appendChild(img);
         figure.appendChild(figcaption);
-        figure.appendChild(ul);
+        figure.appendChild(detailsWrapper);
         gallery.appendChild(figure);
     });
 }
@@ -128,8 +140,7 @@ const navElement = document.querySelector('.navigation');
 if (menuToggle && navElement) {
     menuToggle.addEventListener('click', () => {
         navElement.classList.toggle('open');
-        // Toggle hamburger/X icon
-        menuToggle.innerHTML = navElement.classList.contains('open') ? '&times;' : '&#9776;';
+        menuToggle.innerHTML = navElement.classList.contains('open') ? '&#10005;' : '&#9776;';
     });
 }
 
@@ -152,23 +163,25 @@ navLinks.forEach(link => {
                 filteredTemples = temples;
                 break;
             case 'old':
+                // Temples built before 1900 (Idaho Falls is the only one)
                 filteredTemples = temples.filter(temple => {
-                    // Extracts the year from the dedication string
                     const year = parseInt(temple.dedicated.split(' ').pop());
                     return year < 1900;
                 });
                 break;
             case 'new':
+                // Temples built after 2000
                 filteredTemples = temples.filter(temple => {
                     const year = parseInt(temple.dedicated.split(' ').pop());
                     return year > 2000;
                 });
                 break;
             case 'large':
+                // Temples larger than 90,000 sq ft
                 filteredTemples = temples.filter(temple => temple.area > 90000);
                 break;
             case 'small':
-                // Note: The 'Small' filter will now return an empty array if no temple is under 10,000 sq ft.
+                // Temples smaller than 10,000 sq ft
                 filteredTemples = temples.filter(temple => temple.area < 10000);
                 break;
             default:
