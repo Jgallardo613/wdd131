@@ -102,29 +102,46 @@ nav a.active {
 
 /* --- FIGURE/IMAGE STYLING --- */
 figure {
-    border: 1px solid #ddd;
+    /* FIX: Reserves space using the calculated aspect ratio (250/400 = 62.5%) to prevent layout shift (CLS) */
+    position: relative; 
+    padding-top: 62.5%; 
+    border: 1px solid #ddd; /* Card Outline */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0; 
 }
 figure img {
-    /* FIX: Added explicit dimensions to reserve space and prevent layout shift */
+    /* FIX: Image fills the reserved space, eliminating CLS */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto; 
+    height: 100%; 
+    object-fit: cover; /* Ensures image covers the area without stretching */
     display: block;
-    aspect-ratio: 4/3;
-    /* Adding max-width and max-height to ensure the browser knows the bounds */
-    max-width: 400px;
-    max-height: 250px;
 }
 figcaption {
     padding: 0.75rem;
     font-weight: bold;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Title Background */
     color: #333333; 
     font-size: 0.9rem;
 }
+
+/* --- LIST ITEM STYLING --- */
+figure ul {
+    list-style: disc; /* Ensures basic bullet points show */
+    padding: 1rem 1rem 1rem 2rem; /* Adds padding for list text and bullets */
+    text-align: left;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+figure ul li {
+    margin-bottom: 0.3rem;
+}
+
 
 /* --- FOOTER --- */
 footer {
