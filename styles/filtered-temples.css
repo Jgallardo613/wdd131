@@ -100,26 +100,30 @@ nav a.active {
     color: #333;
 }
 
-/* --- FIGURE/IMAGE STYLING --- */
+/* --- FIGURE/IMAGE STYLING (FIXED) --- */
 figure {
-    /* FIX: Reserves space using the calculated aspect ratio (250/400 = 62.5%) to prevent layout shift (CLS) */
-    position: relative; 
-    padding-top: 62.5%; 
-    border: 1px solid #ddd; /* Card Outline */
+    /* FIX 1: Use Flexbox to stack content (image, caption, and details) */
+    display: flex; 
+    flex-direction: column; 
+    
+    border: 1px solid #ddd; 
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0; 
+    
+    /* Removed padding-top: 62.5% */
+    position: relative; /* Needed for any internal positioning */
 }
 figure img {
-    /* FIX: Image fills the reserved space, eliminating CLS */
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* FIX 2: Image takes up 100% width and scales height automatically */
     width: 100%;
-    height: 100%; 
-    object-fit: cover; /* Ensures image covers the area without stretching */
+    height: auto; 
+    object-fit: cover; 
     display: block;
+    
+    /* Removed absolute positioning */
+    transition: transform 0.3s ease;
 }
 figcaption {
     padding: 0.75rem;
@@ -129,17 +133,26 @@ figcaption {
     font-size: 0.9rem;
 }
 
-/* --- LIST ITEM STYLING --- */
-figure ul {
-    list-style: disc; /* Ensures basic bullet points show */
-    padding: 1rem 1rem 1rem 2rem; /* Adds padding for list text and bullets */
-    text-align: left;
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.4;
+/* --- LIST ITEM STYLING (FIXED: Targets the new .details-wrapper from the JS) --- */
+/* FIX 3: New styles to contain the description */
+.gallery figure .details-wrapper {
+    padding: 10px; 
+    text-align: left; 
+    background-color: #f8f8f8; /* Makes the description area stand out */
+    border-top: 1px solid #ddd;
+    flex-grow: 1; /* Helps the details section grow and look clean */
 }
-figure ul li {
-    margin-bottom: 0.3rem;
+
+/* FIX 4: Cleanup list appearance */
+.gallery figure .details-wrapper ul {
+    list-style: none; /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+.gallery figure .details-wrapper li {
+    line-height: 1.4;
+    font-size: 0.9em;
 }
 
 
