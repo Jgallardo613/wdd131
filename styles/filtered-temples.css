@@ -1,5 +1,6 @@
 /* ================================================= */
 /* filtered-temples.css - Mobile First Styles (Small Screens) */
+/* All colors standardized to RGB/RGBA */
 /* ================================================= */
 
 /* Universal Reset and Box-Sizing */
@@ -19,7 +20,8 @@ body {
 
 /* --- HEADER --- */
 header {
-    background-color: #003366; 
+    /* #003366 converted to rgb(0, 51, 102) */
+    background-color: rgb(0, 51, 102); 
     color: white; 
     padding: 1rem;
     text-align: center;
@@ -34,7 +36,8 @@ nav {
     display: none; 
     flex-direction: column;
     width: 100%;
-    background-color: #004080;
+    /* #004080 converted to rgb(0, 64, 128) */
+    background-color: rgb(0, 64, 128);
     position: absolute; 
     top: 3.5rem; 
     left: 0;
@@ -53,6 +56,7 @@ nav a {
     text-align: left; 
     width: 100%; 
     border-right: none; 
+    /* rgba is needed for transparency */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
 }
 nav a:last-child {
@@ -60,7 +64,8 @@ nav a:last-child {
 }
 nav a:hover,
 nav a.active {
-    background-color: #0066cc; 
+    /* #0066cc converted to rgb(0, 102, 204) */
+    background-color: rgb(0, 102, 204); 
     font-weight: bold;
 }
 
@@ -94,16 +99,19 @@ nav a.active {
 .gallery h2 {
     grid-column: 1 / -1; 
     margin-bottom: 1rem;
-    color: #333;
+    /* #333 converted to rgb(51, 51, 51) */
+    color: rgb(51, 51, 51);
 }
 
 /* --- FIGURE/IMAGE STYLING (FIXED) --- */
 figure {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ddd;
+    /* #ddd converted to rgb(221, 221, 221) */
+    border: 1px solid rgb(221, 221, 221);
     border-radius: 8px;
     overflow: hidden;
+    /* rgba is needed for transparency */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0;
     background: white;
@@ -119,8 +127,10 @@ figure img {
 figcaption {
     padding: 0.75rem;
     font-weight: bold;
-    background-color: #f4f4f4;
-    color: #333333;
+    /* #f4f4f4 converted to rgb(244, 244, 244) */
+    background-color: rgb(244, 244, 244);
+    /* #333333 converted to rgb(51, 51, 51) */
+    color: rgb(51, 51, 51);
     font-size: 0.9rem;
 }
 
@@ -128,8 +138,10 @@ figcaption {
 .details-wrapper {
     padding: 1rem;
     text-align: left;
-    background-color: #f8f8f8;
-    border-top: 1px solid #ddd;
+    /* #f8f8f8 converted to rgb(248, 248, 248) */
+    background-color: rgb(248, 248, 248);
+    /* #ddd converted to rgb(221, 221, 221) */
+    border-top: 1px solid rgb(221, 221, 221);
     flex-grow: 1;
 }
 
@@ -143,7 +155,8 @@ figcaption {
     line-height: 1.6;
     font-size: 0.9em;
     padding: 0.25rem 0;
-    border-bottom: 1px solid #eee;
+    /* #eee converted to rgb(238, 238, 238) */
+    border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .details-wrapper li:last-child {
@@ -152,7 +165,8 @@ figcaption {
 
 /* --- FOOTER --- */
 footer {
-    background-color: #003366;
+    /* #003366 converted to rgb(0, 51, 102) */
+    background-color: rgb(0, 51, 102);
     color: white;
     padding: 1rem;
     text-align: center;
