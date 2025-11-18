@@ -1,0 +1,25 @@
+/* Apply Typography (Section 5) and Color Schema (Section 4) */
+
+body {
+    /* White background (Secondary Color) */
+    background-color: #FFFFFF; 
+    /* Dark Gray text (Text Color) */
+    color: #333333; 
+    /* Arial/Helvetica Font (Typography) */
+    font-family: Arial, Helvetica, sans-serif; 
+    line-height: 1.6;
+    margin: 20px; /* Adds some padding around the content */
+}
+
+h1, h2, h3 {
+    /* Deep Sky Blue (Primary Color) */
+    color: #00BFFF; 
+}
+
+hr {
+    /* Light gray line for separation */
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
