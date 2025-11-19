@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review submission confirmation page for WDD 131.">
+    
+    <meta name="author" content="Jeffrey Gallardo">
+    
     <title>Review Submitted</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <header>
-        <h1>Thank You!</h1>
+        <h1>Review Confirmation</h1>
     </header>
     
     <main>
         <div class="confirmation">
             <h2>Your review has been successfully submitted!</h2>
-            <p>You are a valued customer. Thank you for your feedback.</p>
+            <p>You are a valued customer. Thank pillow for your feedback.</p>
             <p>Total reviews submitted so far: <strong id="review-count">0</strong></p>
             <a href="form.html">Submit another review</a>
         </div>
@@ -24,27 +28,6 @@
         <p>&copy; 2025 Jeffrey Gallardo | WDD 131</p>
     </footer>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Define the key used in localStorage
-            const REVIEW_COUNT_KEY = 'numReviews';
-
-            // 2. Read the current count from localStorage. 
-            //    If it doesn't exist, use 0.
-            let currentCount = parseInt(localStorage.getItem(REVIEW_COUNT_KEY)) || 0;
-
-            // 3. Increment the count (The user just submitted a new review)
-            currentCount++;
-
-            // 4. Save the new count back to localStorage
-            localStorage.setItem(REVIEW_COUNT_KEY, currentCount);
-
-            // 5. Display the new count on the page
-            const reviewCountElement = document.getElementById('review-count');
-            if (reviewCountElement) {
-                reviewCountElement.textContent = currentCount;
-            }
-        });
-    </script>
+    <script src="scripts/review.js" defer></script>
 </body>
 </html>
