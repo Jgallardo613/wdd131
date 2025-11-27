@@ -1,0 +1,232 @@
+/* --- 1. Global Reset & Typography --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    /* Sky Gradient Background */
+    background: linear-gradient(180deg, #f0f8ff 0%, #ffffff 100%);
+    background-attachment: fixed; 
+}
+
+h1, h2, h3 {
+    color: #0277bd; /* Deep sky blue accent */
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+/* --- 2. Header and Logo (CENTERED LAYOUT) --- */
+.main-header {
+    /* ACCESSIBILITY FIX 1: Darker background for better contrast with white links */
+    background-color: #0d47a1; 
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+    display: flex; 
+    flex-direction: column; /* Stacks logo above nav */
+    align-items: center; /* Centers items horizontally */
+    padding: 10px 0;
+}
+
+.main-header .logo {
+    max-width: 180px; 
+    height: auto;
+    margin: 0; 
+}
+
+.main-header h1 {
+    display: none; 
+}
+
+/* --- 3. Navigation Styling --- */
+.main-nav a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold;
+    margin: 0 15px; 
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a:focus { /* Accessibility Fix 2: Focus state for keyboard navigation */
+    color: #ffd700; 
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+
+/* --- 4. Form Styling --- */
+.search-area {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.search-area form {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#weather-form label {
+    display: none; 
+}
+
+#weather-form input[type="text"] {
+    flex-grow: 1; 
+    padding: 10px;
+    border: 2px solid #b3e5fc; 
+    border-radius: 20px;
+    min-width: 250px;
+}
+
+#weather-form button {
+    padding: 10px 25px;
+    background-color: #4caf50; 
+    /* ACCESSIBILITY FIX 3: Changed text color to black for guaranteed contrast */
+    color: black; 
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#weather-form button:hover {
+    background-color: #388e3c;
+}
+
+/* --- 5. Current Weather Output (Highlighted Panel) --- */
+#weather-output {
+    padding: 30px;
+    border: none;
+    border-radius: 12px;
+    margin: 20px 0;
+    text-align: center;
+    background-color: #e3f2fd; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+}
+
+#weather-output p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Styling for the large current temperature */
+#weather-output p:nth-child(3) { 
+    font-size: 3.5em; 
+    font-weight: 300; 
+    color: #0d47a1; 
+    margin: 10px 0;
+}
+
+/* Styling for the large current weather icon */
+#weather-output .current-weather-icon {
+    width: 120px; 
+    height: 120px;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+
+
+/* --- 6. 5-Day Forecast Grid --- */
+#forecast-output {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    padding: 20px 0;
+}
+
+.forecast-day {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-top: 5px solid #0277bd; 
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.forecast-day:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-day .weather-icon {
+    width: 60px; 
+    height: 60px;
+    margin: -10px auto 5px auto; 
+    display: block;
+}
+
+/* --- 7. Footer Styling (Accessibility Fix: Darker text for contrast) --- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #cfd8dc; 
+    color: #333; /* Darker text for guaranteed contrast */
+    font-size: 0.9em;
+    margin-top: 30px;
+}
+
+
+/* --- 8. Media Queries for Responsiveness --- */
+
+/* Tablets (800px and under) */
+@media (max-width: 800px) {
+    #forecast-output {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Mobile Phones (500px and under) */
+@media (max-width: 500px) {
+    #forecast-output {
+        grid-template-columns: 1fr; 
+    }
+    
+    .main-header .logo {
+        max-width: 150px;
+    }
+    
+    /* Make input and button stack nicely on mobile */
+    .search-area form {
+        flex-direction: column;
+    }
+    #weather-form input[type="text"], #weather-form button {
+        width: 100%; 
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* Adjust navigation for mobile to allow stacking if links are too long */
+    .header-content {
+        flex-direction: column; 
+        text-align: center;
+    }
+    .main-nav {
+        margin-top: 10px;
+    }
+    .main-nav a {
+        margin: 0 10px;
+    }
+}
