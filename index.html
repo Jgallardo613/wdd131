@@ -1,67 +1,58 @@
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>WDD 131: Dynamic Web Fundamentals - Jeffrey Gallardo</title>
-
-    <meta name="description" content="Jeffrey Gallardo's homepage for WDD 131: Dynamic Web Fundamentals, featuring course work and personal interests.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroWeather - Your Daily Forecast</title>
     
-    <meta name="author" content="Jeffrey Gallardo">
+    <meta name="description" content="AeroWeather: Your responsive source for current conditions and a 5-day forecast." />
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles/base.css"> 
-    
-    <script src="scripts/getdates.js" defer></script>
+    <link rel="stylesheet" href="styles/site.css"> 
 </head>
 <body>
-    <header>
-        <span id="course-title">WDD 131 – Dynamic Web Fundamentals</span>
 
-        <nav>
-            <a href="https://www.linkedin.com/in/jeffrey-g-54666512a/">LinkedIn</a>
-            <a href="https://byupw.instructure.com/">Canvas</a>
-            <a href="https://www.churchofjesuschrist.org/study/scriptures">Scripture</a>
-            <a href="#">Final Project</a>
-        </nav>
+    <header class="main-header">
+        <div class="header-content container">
+            <img src="images/aeroweather-logo.png" alt="AeroWeather Logo" class="logo">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="reference.html">References</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <h1>Jeffrey Gallardo</h1>
-
-        <section class="card">
-            <h2>About Me</h2>
-            
-            <img src="images/jeffreyg.jpeg" alt="Profile picture of Jeffrey Gallardo" width="200">
-            <p>
-                My name is Jeffrey Gallardo and I live in Rexburg, Idaho for about 12 years. I am currently working towards
-                a bachelors degree in computer science. I love to write poetry, I love to write code projects for software engineering out of the blue to create something new, and spend time with my wife and my dog and my parents when I get to see them. 
-                I'm looking forward to learning how to build dynamic, responsive websites in WDD 131!
-            </p>
+    <main class="container">
+        <section class="search-area">
+            <form id="weather-form">
+                <label for="city-input">Enter City Name:</label>
+                <input type="text" id="city-input" placeholder="e.g., London,UK or Salt Lake City,US" required>
+                <button type="submit">Get Weather</button>
+            </form>
         </section>
 
-        <section class="card">
-            <h2>Web Dev Resources</h2>
-            <ul>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN Web Docs - HTML</a></li>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN Web Docs - CSS</a></li>
-                <li><a href="https://css-tricks.com/">CSS-Tricks</a></li>
-                <li><a href="https://www.w3schools.com/">W3 Schools</a></li>
-                <li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li>
-            </ul>
+        <hr>
+
+        <section class="current-weather">
+            <h2>Current Conditions</h2>
+            <div id="weather-output">
+                <p>Search for a city to see the current weather and 5-day forecast.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="five-day-forecast">
+            <h2>5-Day Forecast</h2>
+            <div id="forecast-output" class="forecast-grid">
+                </div>
         </section>
     </main>
-
+    
     <footer>
-        <p>
-            &copy; <span id="currentyear"></span> | Jeffrey Gallardo | Rexburg Idaho/USA
-        </p>
-        
-        <p id="lastModified"></p>
+        <p>&copy; <span id="currentYear"></span> 2025/ Jeffrey Gallardo / AeroWeather. All rights reserved.</p>
     </footer>
+
+    <script src="scripts/site.js"></script> 
 </body>
 </html>
