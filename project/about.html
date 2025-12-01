@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AeroWeather</title>
+    
+    <link rel="stylesheet" href="styles/site.css"> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content container">
+            <img src="images/aeroweather-logo.png" alt="AeroWeather Logo" class="logo">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="reference.html">References</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about-content">
+            <h2>About AeroWeather</h2>
+            <p>Welcome to AeroWeather! This dynamic web application was developed by Jeffrey Gallardo as a final project for the WDD 131: Dynamic Web Fundamentals course.</p>
+            
+            <p>Our goal was to build a clean, functional, and responsive platform that accurately retrieves and displays current weather conditions and a 5-day forecast for any location worldwide using modern web standards.</p>
+
+            <h3>Key Project Highlights:</h3>
+            <ul>
+                <li>Dynamic Data:Fetched using the JavaScript `fetch` method from the OpenWeatherMap API.</li>
+                <li>Responsiveness:Utilizes CSS Grid and Media Queries for optimal display on mobile and desktop devices.</li>
+                <li>Data Handling:Demonstrates proficiency in using JavaScript objects, arrays, and array methods (filter, forEach) to process the forecast data.</li>
+                <li>User Experience: Includes features like `localStorage` to remember the user's last search.</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="currentYear"></span> / Jeffrey Gallardo / AeroWeather. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/site.js"></script> 
+</body>
+</html>
